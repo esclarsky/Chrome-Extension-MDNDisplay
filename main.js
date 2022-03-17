@@ -1,24 +1,25 @@
 console.log(`OUR EXTENSION WORKS`)
 
-    const header = document.querySelector('.main-page-content');
+    
 
     // console.log(header);
     // //console.log(header.childNodes, header.children);
 
-    // Grab page name, first paragraph of page, and all links contained in the article 
-    const pageName = header.childNodes[0].innerHTML
-    const shortText = header.childNodes[1].childNodes[0].innerHTML
+    // // Grab page name, first paragraph of page, and all links contained in the article 
+    const header = document.querySelector('.main-page-content');
+    // const pageName = header.childNodes[0].innerHTML
+    // const shortText = header.childNodes[1].childNodes[0].innerHTML
     const links = header.querySelectorAll('a');
-    const dialog = document.createElement('dialog');
-    const content = document.createElement('p');
-    content.innerHTML = shortText;
-    dialog.appendChild(content);
-    // console.log(link.href)
-    // 
+    // const dialog = document.createElement('dialog');
+    // const content = document.createElement('p');
+    // content.innerHTML = shortText;
+    // dialog.appendChild(content);
+    // // console.log(link.href)
+    // // 
     
 
-    console.log(shortText)
-    console.log(links);
+    // console.log(shortText)
+    // console.log(links);
 
 // For all links, run our function (function being loading the page and displaying header and paragraph)
     links.forEach((link, i) => {
@@ -26,17 +27,47 @@ console.log(`OUR EXTENSION WORKS`)
             // Create popup box
             const box = document.createElement('div');
             
-            box.style.height = `100px`;
-            box.style.width = '100px';
-            box.style.backgroundColor = 'white';
+            box.style.height = `300px`;
+            box.style.width = '400px';
+            box.style.overflow = 'auto';
+            box.style.backgroundColor = 'pink';
             box.style.position = 'fixed';
             box.style.top = '400px';
             box.style.left = '400px';
+            box.style.padding = '5px';
+            box.style.outline = `1px solid black`
             
             box.id = `popupbox`;
-            // Add contents of 
-            box.innerText = 'this is a placeholder';
+            // Add contents of webpage to popupbox
+            const tbd = fetch(`${link.href}`)
+                .then(response => response.text())
+                .then(response => {
+                    const doc = new DOMParser();
+                    const result = doc.parseFromString(response, 'text/html');
 
+                    
+                    const header = result.querySelector('.main-page-content');
+                    const pageName = header.childNodes[0].innerHTML
+                    const shortText = header.childNodes[1].childNodes[0].innerHTML
+                    // box.innerText = `${pageName}`
+                    const pageNm = document.createElement('p');
+                    const content = document.createElement('p');
+                    
+                    pageNm.style.outline = `1px solid black`
+                    pageNm.style.fontSize = 36;
+                    pageNm.style.
+                    pageNm.style.textAlign = `center`;
+
+                    content.style.fontSize = 10;
+                    
+                    
+                    content.innerHTML = shortText;
+                    pageNm.innerHTML = pageName;
+                    box.appendChild(pageNm);
+                    box.appendChild(content);
+                    console.log(pageNm)
+                    }
+                );
             const body = document.querySelector('body');
             body.appendChild(box);
         }
