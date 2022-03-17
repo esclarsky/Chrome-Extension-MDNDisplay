@@ -3,6 +3,9 @@
     "name": "MDN Wiki",
     "version": "1.0",
     "description": "chrome extension",
+    "icons": { "16": "MDN_Web_Docs_logo.png",
+      "48": "MDN_Web_Docs_logo.png",
+     "128": "MDN_Web_Docs_logo.png" },
     "content_scripts": [
       {
         "matches": ["https://developer.mozilla.org/*"],
