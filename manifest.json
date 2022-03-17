@@ -1,5 +1,13 @@
 {
     "manifest_version": 2,
     "name": "MDN Wiki",
-    "version": "1.0"
+    "version": "1.0",
+    "description": "chrome extension",
+    "content_scripts": [
+      {
+        "matches": ["https://developer.mozilla.org/*"],
+        "js": ["./main.js"]
+      }
+    ]
   }
+  
