@@ -25,8 +25,7 @@ console.log(`OUR EXTENSION WORKS`)
             box.style.backgroundColor = '#ecd9fe';
             box.style.position = 'fixed';
             box.style.padding = '5px';
-            box.style.outline = `1px solid black`
-            console.log(box.style.top, box.style.left)
+            box.style.outline = `1px solid black`;
             box.id = `popupbox`;
             // Add contents of webpage to popupbox
             const tbd = fetch(`${link.href}`)
@@ -34,6 +33,23 @@ console.log(`OUR EXTENSION WORKS`)
                 .then(response => {
                     const doc = new DOMParser();
                     const result = doc.parseFromString(response, 'text/html');
+
+
+
+                    const regex = new RegExp(".*#.*");
+                    let next = new RegExp(".*(#.*$)");
+                    let searchstring;
+                    if (regex.test(link.href)) {
+                        searchstring = link.href.replace(next, '$1');
+                    }
+                    if (searchstring){
+                        const textToUse = result.querySelector(searchstring);
+                        console.log(textToUse);
+                    }
+
+
+
+                    
                     const header = result.querySelector('.main-page-content');
                     const pageName = header.childNodes[0].innerHTML
                     const shortText = header.childNodes[1].childNodes[0].innerHTML
