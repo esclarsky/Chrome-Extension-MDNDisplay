@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "MDN Wiki",
+    "name": "MDN Display",
     "version": "1.0",
     "description": "chrome extension",
     "icons": { "16": "MDN_Web_Docs_logo_new.png",
