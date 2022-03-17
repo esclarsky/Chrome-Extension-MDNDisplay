@@ -23,6 +23,7 @@ console.log(`OUR EXTENSION WORKS`)
 // For all links, run our function (function being loading the page and displaying header and paragraph)
     links.forEach((link, i) => {
         link.onmouseover =  () => {
+            // Create popup box
             const box = document.createElement('div');
             
             box.style.height = `100px`;
@@ -33,6 +34,7 @@ console.log(`OUR EXTENSION WORKS`)
             box.style.left = '400px';
             
             box.id = `popupbox`;
+            // Add contents of 
             box.innerText = 'this is a placeholder';
 
             const body = document.querySelector('body');
