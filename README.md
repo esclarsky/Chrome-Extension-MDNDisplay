@@ -3,4 +3,4 @@ Inspired by Wikipedia's article preview on mouse hover, this is a similar featur
 
 Preview the overview paragraph of the page you are interested in to determine if it's what you need.
 
-[image](https://github.com/esclarsky/Chrome-Extension-MDNDisplay/blob/master/MDNDisplay-example.png)
+<img src="https://github.com/esclarsky/Chrome-Extension-MDNDisplay/blob/master/MDNDisplay-example.png" />
