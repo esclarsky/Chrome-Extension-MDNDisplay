@@ -1,19 +1,8 @@
-console.log(`OUR EXTENSION WORKS`)
-
-    
-
-    // console.log(header);
-    // //console.log(header.childNodes, header.children);
-
-    // // Grab page name, first paragraph of page, and all links contained in the article 
-    // const header = document.querySelector('.main-page-content');
-
-
 // Get every link on the MDN page
     const links = document.querySelectorAll('a');
   
 
-// Whenever we interact with a link, run a function
+// Whenever we interact with a link, run this function
     links.forEach((link, i) => {
         // If the interaction is hovering over the link, run the below function
         link.onmouseover =  (e) => {
